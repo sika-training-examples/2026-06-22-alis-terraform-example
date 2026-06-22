@@ -2,7 +2,6 @@ locals {
   users = {
     "admin"  = ["Admin", "Admin"]
     "ondrej" = ["Ondrej", "Sika"]
-    "dela"   = ["Dela", "Dela"]
     "klara"  = ["Klara", "Alis"]
   }
 }
