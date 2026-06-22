@@ -31,3 +31,20 @@ resource "keycloak_user" "ondrej" {
     temporary = false
   }
 }
+
+resource "keycloak_user" "dela" {
+  realm_id = keycloak_realm.example.realm
+
+  username = "dela"
+  enabled  = true
+
+  email          = "dela@sikademo.com"
+  email_verified = true
+  first_name     = "Dela"
+  last_name      = "Dela"
+
+  initial_password {
+    value     = "a"
+    temporary = false
+  }
+}
