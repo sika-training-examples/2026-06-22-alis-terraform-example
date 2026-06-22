@@ -1,4 +1,9 @@
 terraform {
+  backend "s3" {
+    bucket = "training-alis-tf-states"
+    key    = "alis-example.tfstate"
+    region = "eu-central-1"
+  }
   required_providers {
     keycloak = {
       source  = "keycloak/keycloak"
