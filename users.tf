@@ -11,6 +11,10 @@ resource "slu_random_password" "password" {
 }
 
 resource "keycloak_user" "user" {
+  lifecycle {
+    prevent_destroy = true
+  }
+
   for_each = local.users
 
   realm_id = keycloak_realm.example.realm
