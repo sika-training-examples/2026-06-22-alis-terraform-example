@@ -1,3 +1,8 @@
+resource "random_password" "admin" {
+  length  = 16
+  special = false
+}
+
 resource "keycloak_user" "admin" {
   realm_id = keycloak_realm.example.realm
 
@@ -10,10 +15,12 @@ resource "keycloak_user" "admin" {
   last_name      = "Admin"
 
   initial_password {
-    value     = "a"
+    value     = random_password.admin.result
     temporary = false
   }
 }
+
+resource "slu_random_password" "ondrej" {}
 
 resource "keycloak_user" "ondrej" {
   realm_id = keycloak_realm.example.realm
@@ -27,10 +34,12 @@ resource "keycloak_user" "ondrej" {
   last_name      = "Sika"
 
   initial_password {
-    value     = "a"
+    value     = slu_random_password.ondrej.result
     temporary = false
   }
 }
+
+resource "slu_random_password" "dela" {}
 
 resource "keycloak_user" "dela" {
   realm_id = keycloak_realm.example.realm
@@ -44,7 +53,22 @@ resource "keycloak_user" "dela" {
   last_name      = "Dela"
 
   initial_password {
-    value     = "a"
+    value     = slu_random_password.dela.result
     temporary = false
   }
+}
+
+output "initial_password_admin" {
+  value     = random_password.admin.result
+  sensitive = true
+}
+
+output "initial_password_ondrej" {
+  value     = slu_random_password.ondrej.result
+  sensitive = true
+}
+
+output "initial_password_dela" {
+  value     = slu_random_password.dela.result
+  sensitive = true
 }

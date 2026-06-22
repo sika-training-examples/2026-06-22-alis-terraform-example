@@ -4,6 +4,14 @@ terraform {
       source  = "keycloak/keycloak"
       version = "5.8.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.9.0"
+    }
+    slu = {
+      source  = "sikalabsx/slu"
+      version = "0.4.0"
+    }
   }
 }
 
