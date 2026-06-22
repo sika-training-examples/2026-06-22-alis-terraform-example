@@ -33,6 +33,7 @@ resource "slu_random_password" "this" {}
 resource "keycloak_user" "this" {
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [required_actions]
   }
 
   realm_id = var.realm_id
