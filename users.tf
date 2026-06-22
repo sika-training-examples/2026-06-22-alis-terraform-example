@@ -4,7 +4,6 @@ locals {
     "ondrej" = ["Ondrej", "Sika"]
     "dela"   = ["Dela", "Dela"]
     "klara"  = ["Klara", "Alis"]
-    "bara"   = ["Bara", "Alis"]
   }
 }
 
