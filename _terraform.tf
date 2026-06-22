@@ -1,8 +1,10 @@
 terraform {
   backend "s3" {
-    bucket = "training-alis-tf-states"
-    key    = "alis-example.tfstate"
-    region = "eu-central-1"
+    bucket       = "training-alis-tf-states"
+    key          = "alis-example.tfstate"
+    region       = "eu-central-1"
+    use_lockfile = true
+
   }
   required_providers {
     keycloak = {
